@@ -15,7 +15,7 @@ RUN apt-get update
 RUN apt-get install -y iputils-ping net-tools telnet vim
 
 # 使用本地http代理, 加速后面的repository下载
-ENV http_proxy=http://172.25.160.114:1087
+ENV http_proxy=http://172.22.132.124:1087
 
 # 安装python3.7 & pip3 & supervisor
 RUN add-apt-repository ppa:deadsnakes/ppa
@@ -34,6 +34,9 @@ ADD ./nginx.conf /etc/nginx/nginx.conf
 
 # 安装 virtualenv
 RUN apt-get install -y python-virtualenv
+
+# 去掉代理，以免影响容器访问网络
+RUN unset http_proxy
 
 # 加载代码 & 配置文件 & 启动脚本
 Add ./requirements.txt /board/
