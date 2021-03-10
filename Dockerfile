@@ -36,7 +36,7 @@ ADD ./nginx.conf /etc/nginx/nginx.conf
 RUN apt-get install -y python-virtualenv
 
 # 去掉代理，以免影响容器访问网络
-RUN unset http_proxy
+ENV http_proxy=
 
 # 加载代码 & 配置文件 & 启动脚本
 Add ./requirements.txt /board/
