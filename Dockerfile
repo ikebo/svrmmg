@@ -15,7 +15,7 @@ RUN apt-get update
 RUN apt-get install -y iputils-ping net-tools telnet vim
 
 # 使用本地http代理, 加速后面的repository下载
-ENV http_proxy=http://172.22.132.124:1087
+ENV http_proxy=http://192.168.10.4:1087
 
 # 安装python3.7 & pip3 & supervisor
 RUN add-apt-repository ppa:deadsnakes/ppa
