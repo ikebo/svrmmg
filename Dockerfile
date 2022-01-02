@@ -48,4 +48,4 @@ RUN /bin/bash -c "cd /board && source venv/bin/activate && pip install -r requir
 EXPOSE 80
 EXPOSE 5000
 
-CMD cp /project/svrmg.conf /etc/supervisor/conf.d/ && supervisord -n -c /etc/supervisor/supervisord.conf
+CMD cp /project/conf/* /etc/supervisor/conf.d/ && supervisord -n -c /etc/supervisor/supervisord.conf
